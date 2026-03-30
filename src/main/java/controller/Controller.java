@@ -28,6 +28,6 @@ public class Controller {
 
         outputview.printStatus(lottoResult.getResult());
         int totalPrice = money.getProfit(lottoResult.getResult());
-        outputview.printRoR(money.RoR(totalPrice));
+        outputview.printRoR(money.calculateProfit(totalPrice));
     }
 }

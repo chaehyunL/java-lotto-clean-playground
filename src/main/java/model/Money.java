@@ -26,7 +26,7 @@ public class Money {
         return total;
     }
 
-    public double RoR(int profit) {
+    public double calculateProfit(int profit) {
         double rate = (double) profit / money;
         return rate;
     }
