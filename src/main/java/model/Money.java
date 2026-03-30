@@ -3,8 +3,8 @@ package model;
 import java.util.Map;
 
 public class Money {
-    public final int money;
-    public final int amount;
+    private final int money;
+    private final int amount;
 
     public Money(int money) {
         this.money = money;
