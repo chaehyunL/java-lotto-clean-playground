@@ -1,3 +1,4 @@
+import model.LottoRank;
 import model.Money;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -22,12 +23,12 @@ public class TestMoney {
     public void testprofit() {
         //given:돈과 status 객체 생성
         Money money = new Money(14000);
-        Map<Integer, Integer> status = new HashMap<>();
-        //when:3개 일치부터 6개일치까지 하나씩 밖에 없을때
-        status.put(3, 1);
-        status.put(4, 1);
-        status.put(5, 1);
-        status.put(6, 1);
+        Map<LottoRank, Integer> status = new HashMap<>();
+        //when:
+        status.put(LottoRank.THREE, 1);
+        status.put(LottoRank.FOUR, 1);
+        status.put(LottoRank.FIVE, 1);
+        status.put(LottoRank.SIX, 1);
         int profit = (money.getProfit(status));
         //then:가격은 합해서 2001555000
         assertEquals(2001555000,profit);
