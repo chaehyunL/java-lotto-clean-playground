@@ -6,6 +6,7 @@ import model.Money;
 import view.Inputview;
 import view.Outputview;
 
+import java.lang.reflect.WildcardType;
 import java.util.List;
 import java.util.Map;
 
@@ -41,12 +42,12 @@ public class Controller {
 
     private void showStatus(LottoTickets lottoTickets,Money money){
         Inputview inputview=new Inputview();
-        List<Integer> Resultnumber = inputview.getResult();
+        List<Integer> winningNumber = inputview.getResult();
 
         Outputview outputview=new Outputview();
         outputview.printHead();
         LottoResult lottoResult = new LottoResult();
-        lottoResult.calculate(lottoTickets.getTickets(), Resultnumber);
+        lottoResult.calculate(lottoTickets.getTickets(), winningNumber);
 
         outputview.printStatus(lottoResult.getResult());
         int totalPrice = money.getProfit(lottoResult.getResult());
