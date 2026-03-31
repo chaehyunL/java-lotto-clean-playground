@@ -32,7 +32,7 @@ public class Controller {
     }
     private LottoTickets buyTickets(Money money){
         LottoTickets lottoTickets = new LottoTickets(money.getAmount());
-        lottoTickets.buyTickets();
+        return lottoTickets;
     }
 
     private void showTickets(Money money,LottoTickets lottoTickets){
