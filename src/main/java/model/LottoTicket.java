@@ -13,7 +13,9 @@ public class LottoTicket {
     }
     public void makeLottoTicket() {
         List<Integer> pool = new ArrayList<>();
-        for (int i = 1; i <= 45; i++) {
+        int MinlottoNumber=1;
+        int MaxlottoNumber=45;
+        for (int i = MinlottoNumber; i <= MaxlottoNumber; i++) {
             pool.add(i);
         }
         Collections.shuffle(pool);
