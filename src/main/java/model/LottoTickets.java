@@ -15,7 +15,6 @@ public class LottoTickets {
     public void buyTickets() {
         for (int i = 1; i <= quantity; i++) {
             LottoTicket lottoTicket = new LottoTicket();
-            lottoTicket.makeLottoTicket();
             tickets.add(lottoTicket);
         }
     }

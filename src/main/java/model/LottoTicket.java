@@ -8,6 +8,9 @@ import java.util.List;
 public class LottoTicket {
     private final List<Integer> lottoNumbers = new ArrayList<>();
 
+    public LottoTicket(){
+        makeLottoTicket();
+    }
     public void makeLottoTicket() {
         List<Integer> pool = new ArrayList<>();
         for (int i = 1; i <= 45; i++) {
