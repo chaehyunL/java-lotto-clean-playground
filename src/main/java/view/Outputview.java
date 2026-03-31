@@ -1,9 +1,13 @@
 package view;
 
+import model.LottoRank;
+import model.LottoResult;
 import model.LottoTicket;
 import model.LottoTickets;
 
 import java.util.Map;
+
+import static model.LottoRank.MISS;
 
 public class Outputview {
     public void printMyTickets(int quantity, LottoTickets tickets) {
@@ -20,11 +24,16 @@ public class Outputview {
         System.out.println("---------");
     }
 
-    public void printStatus(Map<Integer, Integer> status) {
-        System.out.println("3개 일치 (5000원)-" + status.get(3));
-        System.out.println("4개 일치 (50000원)-" + status.get(4));
-        System.out.println("5개 일치 (1500000원)-" + status.get(5));
-        System.out.println("6개 일치 (2000000000원)- " + status.get(6));
+    public void printStatus(Map<LottoRank, Integer> lottoStatus) {
+        for(LottoRank lottoRank:LottoRank.values()) {
+            int count=lottoStatus.get(lottoRank);
+            if(lottoRank==MISS){
+                break;
+            }
+            System.out.println(lottoRank.getMatchCount()+"개 일치 ("
+                    +lottoRank.getWinningMoney()+"원)- "
+                    +count+"개");
+        }
     }
 
     public void printRoR(double ror) {

@@ -2,6 +2,8 @@ package model;
 
 import java.util.Map;
 
+import static model.LottoRank.MISS;
+
 public class Money {
     private final int money;
     private final int amount;
@@ -17,12 +19,15 @@ public class Money {
         return count;
     }
 
-    public int getProfit(Map<Integer,Integer>status){
+    public int getProfit(Map<LottoRank,Integer>status){
         int total=0;
-        total=status.get(3)*5000+
-                status.get(4)*50000+
-                status.get(5)*1500000+
-                status.get(6)*2000000000;
+        for(LottoRank lottoRank:LottoRank.values()){
+            int count=status.get(lottoRank);
+            if(lottoRank==MISS){
+                return total;
+            }
+            total+=lottoRank.getWinningMoney()*count;
+        }
         return total;
     }
 
