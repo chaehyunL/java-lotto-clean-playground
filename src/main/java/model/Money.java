@@ -22,7 +22,7 @@ public class Money {
     public int getProfit(Map<LottoRank,Integer>status){
         int total=0;
         for(LottoRank lottoRank:LottoRank.values()){
-            int count=status.get(lottoRank);
+            int count=status.getOrDefault(lottoRank,0);
             if(lottoRank==MISS){
                 return total;
             }
