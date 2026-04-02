@@ -15,11 +15,10 @@ public class Inputview {
         return validateNumberFormat(input);
     }
 
-    private int validateNumberFormat(String input){
-        try{
+    private int validateNumberFormat(String input) {
+        try {
             return parseInt(input);
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             throw new IllegalArgumentException("[Error]숫자만 입력 가능합니다.");
         }
     }
@@ -28,19 +27,18 @@ public class Inputview {
         List<Integer> result = new ArrayList<>();
         System.out.println("지난 주 당첨 번호를 입력해 주세요.");
         String input = scanner.nextLine().trim();
+        validateDelimiter(input);
         String[] splitInput = input.split(",");
         for (String number : splitInput) {
-            result.add(validateNumber(number));
+            result.add(parseInt(number));
         }
         return result;
     }
-    private final int Minnumber=1;
-    private final int Maxnumber=45;
-    public int validateNumber(String input){
-        int number=parseInt(input);
-        if(number<1||number>45){
-            throw new IllegalArgumentException("[ERROR] 숫자는"+Minnumber+"~"+Maxnumber+"까지 입력 가능");
+
+    private void validateDelimiter(String input) {
+        if (!input.matches("\\d+(,\\d+)*")) {
+            throw new IllegalArgumentException("Error 구분자는 ','만 가능합니다");
         }
-        return number;
     }
+
 }
