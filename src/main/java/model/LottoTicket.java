@@ -8,20 +8,14 @@ import java.util.List;
 public class LottoTicket {
     private final List<Integer> lottoNumbers = new ArrayList<>();
 
-    public LottoTicket(){
+    public LottoTicket() {
         makeLottoTicket();
     }
-    public void makeLottoTicket() {
-        List<Integer> pool = new ArrayList<>();
-        int MinlottoNumber=1;
-        int MaxlottoNumber=45;
-        for (int i = MinlottoNumber; i <= MaxlottoNumber; i++) {
-            pool.add(i);
-        }
-        Collections.shuffle(pool);
 
-        lottoNumbers.clear();
-        lottoNumbers.addAll(pool.subList(0, 6));
+    public void makeLottoTicket() {
+        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+        List<Integer> pool = randomNumberGenerator.getRandomNumberList();
+        lottoNumbers.addAll(pool);
 
         Collections.sort(lottoNumbers);
     }
