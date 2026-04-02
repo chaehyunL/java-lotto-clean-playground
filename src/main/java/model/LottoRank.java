@@ -14,14 +14,6 @@ public enum LottoRank {
         this.winningMoney = winningMoney;
     }
 
-    public int getMatchCount() {
-        return matchCount;
-    }
-
-    public int getWinningMoney() {
-        return winningMoney;
-    }
-
     public static LottoRank find(int match) {
         for (LottoRank lottoRank : values()) {
             if (lottoRank.matchCount == match) {
@@ -30,5 +22,14 @@ public enum LottoRank {
         }
         return MISS;
     }
+
+    public int getMatchCount() {
+        return matchCount;
+    }
+
+    public int getWinningMoney() {
+        return winningMoney;
+    }
+
 
 }
