@@ -10,6 +10,7 @@ public class LottoTickets {
 
     public LottoTickets(int quantity) {
         this.quantity = quantity;
+        buyTickets();
     }
 
     public void buyTickets() {
