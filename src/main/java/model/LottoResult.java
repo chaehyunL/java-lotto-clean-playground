@@ -10,10 +10,10 @@ public class LottoResult {
     private final Map<LottoRank, Integer> lottoStatus = new HashMap<>();
 
     public LottoResult() {
-        init();
+        initLottoStatus();
     }
 
-    public void init() {
+    private void initLottoStatus() {
         for (LottoRank lottoRank : LottoRank.values()) {
             lottoStatus.put(lottoRank, 0);
         }
