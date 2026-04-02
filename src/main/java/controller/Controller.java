@@ -4,6 +4,7 @@ import model.LottoRank;
 import model.LottoResult;
 import model.LottoTickets;
 import model.Money;
+import model.WinningNumber;
 import view.Inputview;
 import view.Outputview;
 
@@ -46,8 +47,8 @@ public class Controller {
 
     private int calculateStatus(LottoTickets lottoTickets, Money money) {
 
-        List<Integer> winningNumber = inputview.getResult();
-        lottoResult.calculate(lottoTickets.getTickets(), winningNumber);
+        WinningNumber winningNumber = new WinningNumber(inputview.getResult());
+        lottoResult.calculate(lottoTickets.getTickets(), winningNumber.getWinningNumber());
 ;
         int totalPrice = money.getProfit(lottoResult.getResult());
         return totalPrice;
