@@ -50,12 +50,12 @@ public class Controller {
         WinningNumber winningNumber = new WinningNumber(inputview.getResult());
         lottoResult.calculate(lottoTickets.getTickets(), winningNumber.getWinningNumber());
 ;
-        int totalPrice = money.getProfit(lottoResult.getResult());
+        int totalPrice = money.getWinningAmount(lottoResult.getResult());
         return totalPrice;
     }
     private void printStatus(int profit,Money money){
         outputview.printHead();
         outputview.printStatus(lottoResult.getResult());
-        outputview.printRoR(money.calculateProfit(profit));
+        outputview.printRoR(money.calculateRateOfReturn(profit));
     }
 }

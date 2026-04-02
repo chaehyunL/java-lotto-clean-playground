@@ -19,7 +19,7 @@ public class Money {
         return count;
     }
 
-    public int getProfit(Map<LottoRank,Integer>status){
+    public int getWinningAmount(Map<LottoRank,Integer>status){
         int total=0;
         for(LottoRank lottoRank:LottoRank.values()){
             int count=status.getOrDefault(lottoRank,0);
@@ -31,7 +31,7 @@ public class Money {
         return total;
     }
 
-    public double calculateProfit(int profit) {
+    public double calculateRateOfReturn(int profit) {
         double rate = (double) profit / money;
         return rate;
     }
