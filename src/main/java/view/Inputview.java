@@ -40,5 +40,9 @@ public class Inputview {
             throw new IllegalArgumentException("Error 구분자는 ','만 가능합니다");
         }
     }
-
+    public int getBonusBall(){
+        System.out.println("지난 주 당첨 번호를 입력해 주세요.");
+        String input=scanner.nextLine();
+        return validateNumberFormat(input);
+    }
 }
