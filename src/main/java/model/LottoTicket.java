@@ -1,5 +1,6 @@
 package model;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -26,6 +27,9 @@ public class LottoTicket {
                 .count();
     }
 
+    public boolean hasBonusBall(int BonusBall){
+        return lottoNumbers.contains(BonusBall);
+    }
     public List<Integer> getLottoNumbers() {
         return List.copyOf(lottoNumbers);
     }
