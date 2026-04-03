@@ -22,8 +22,9 @@ public class Controller {
         LottoTickets lottoTickets = buyTickets(money);
 
         showTickets(money, lottoTickets);
-
-        int totalPrice=calculateStatus(lottoTickets,money);
+        WinningNumber winningNumber = new WinningNumber(inputview.getResult());
+        int bonusNumber=inputview.getBonusBall();
+        int totalPrice=calculateStatus(winningNumber,lottoTickets,money,bonusNumber);
 
         printStatus(totalPrice,money);
 
@@ -45,11 +46,11 @@ public class Controller {
         outputview.printMyTickets(money.getAmount(), lottoTickets);
     }
 
-    private int calculateStatus(LottoTickets lottoTickets, Money money) {
+    private int calculateStatus(WinningNumber winningNumber,LottoTickets lottoTickets, Money money,int bonusNumber) {
 
-        WinningNumber winningNumber = new WinningNumber(inputview.getResult());
-        lottoResult.calculate(lottoTickets.getTickets(), winningNumber.getWinningNumber());
-;
+
+        lottoResult.calculate(lottoTickets.getTickets(), winningNumber.getWinningNumber(),bonusNumber);
+
         int totalPrice = money.getWinningAmount(lottoResult.getResult());
         return totalPrice;
     }
