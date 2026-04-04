@@ -1,24 +1,14 @@
 package model;
-
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-
 public class LottoTicket {
-    private final List<Integer> lottoNumbers = new ArrayList<>();
+    private final List<Integer> lottoNumbers;
 
-    public LottoTicket() {
-        makeLottoTicket();
-    }
-
-    public void makeLottoTicket() {
-        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
-        List<Integer> pool = randomNumberGenerator.getRandomNumberList();
-        lottoNumbers.addAll(pool);
-
-        Collections.sort(lottoNumbers);
+    public LottoTicket(List<Integer> number){
+        this.lottoNumbers=new ArrayList<>(number);
+        Collections.sort(this.lottoNumbers);
     }
 
     public int calculateMatch(List<Integer> winnumbers) {
