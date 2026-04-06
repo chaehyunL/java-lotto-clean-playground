@@ -1,6 +1,7 @@
 package view;
 
 import model.LottoRank;
+import model.LottoResult;
 import model.LottoTicket;
 import model.LottoTickets;
 
@@ -9,13 +10,8 @@ import java.util.Map;
 import static model.LottoRank.MISS;
 
 public class Outputview {
-    public void printPurchaseSummary(int manualQuantity, int autoQuantity) {
-        System.out.println("\n" + "수동으로 " + manualQuantity + "장, 자동으로 " + autoQuantity + "개를 구매했습니다.");
-
-    }
-
-    public void printMytickets(LottoTickets tickets) {
-
+    public void printMyTickets(int quantity, LottoTickets tickets) {
+        System.out.println("\n" + quantity + "개를 구매했습니다.");
         for (LottoTicket ticket : tickets.getTickets()) {
             System.out.println(ticket.getLottoNumbers());
         }
@@ -29,14 +25,14 @@ public class Outputview {
     }
 
     public void printStatus(Map<LottoRank, Integer> lottoStatus) {
-        for (LottoRank lottoRank : LottoRank.values()) {
-            int count = lottoStatus.get(lottoRank);
-            if (lottoRank == MISS) {
+        for(LottoRank lottoRank:LottoRank.values()) {
+            int count=lottoStatus.get(lottoRank);
+            if(lottoRank==MISS){
                 break;
             }
-            System.out.println(lottoRank.getMatchCount() + "개 일치 ("
-                    + lottoRank.getWinningMoney() + "원)- "
-                    + count + "개");
+            System.out.println(lottoRank.getMatchCount()+"개 일치 ("
+                    +lottoRank.getWinningMoney()+"원)- "
+                    +count+"개");
         }
     }
 

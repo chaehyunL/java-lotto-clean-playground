@@ -7,14 +7,10 @@ import static model.LottoRank.MISS;
 public class Money {
     private final int money;
     private final int amount;
-    private final int manualAmount;
-    private final int autoAmount;
 
-    public Money(int money,int manualamount) {
+    public Money(int money) {
         this.money = money;
         this.amount = getAmount();
-        this.manualAmount=manualamount;
-        this.autoAmount=amount-manualamount;
     }
 
     public int getAmount() {
@@ -22,13 +18,6 @@ public class Money {
         count = money / 1000;
         return count;
     }
-    public int getManualAmount(){
-        return manualAmount;
-    }
-    public int getAutoAmount(){
-        return autoAmount;
-    }
-
 
     public int getWinningAmount(Map<LottoRank,Integer>status){
         int total=0;
