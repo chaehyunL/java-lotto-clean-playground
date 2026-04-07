@@ -1,5 +1,8 @@
 package view;
 
+import model.LottoTicket;
+import model.LottoTickets;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -15,13 +18,37 @@ public class Inputview {
         return validateNumberFormat(input);
     }
 
-    private int validateNumberFormat(String input) {
-        try {
-            return parseInt(input);
-        } catch (Exception e) {
-            throw new IllegalArgumentException("[Error]숫자만 입력 가능합니다.");
-        }
+    public int getManualTicketCount() {
+        System.out.println("수동으로 구매할 로또 수를 입력해 주세요.");
+        String input = scanner.nextLine();
+        return validateNumberFormat(input);
     }
+
+    public List<LottoTicket> getManalTicketsNumber(int quantity) {
+        List<LottoTicket> mytickets = new ArrayList<>();
+        System.out.println("수동으로 구매할 번호를 입력해 주세요.");
+
+        for (int i = 0; i < quantity; i++) {
+            LottoTicket ticket = getManualTicketNumber();
+            mytickets.add(ticket);
+        }
+        return mytickets;
+    }
+
+    public LottoTicket getManualTicketNumber() {
+        String input = scanner.nextLine();
+        validateDelimiter(input);
+
+        String[] splitInput = input.split(",");
+        List<Integer> Number = new ArrayList<>();
+        for (String number : splitInput) {
+            Number.add(parseInt(number.trim()));
+        }
+        LottoTicket ticket = new LottoTicket(Number);
+
+        return ticket;
+    }
+
 
     public List<Integer> getResult() {
         List<Integer> result = new ArrayList<>();
@@ -35,8 +62,26 @@ public class Inputview {
         return result;
     }
 
+
+    public int getBonusBall() {
+        System.out.println("보너스 볼을 입력해 주세요.");
+        String input = scanner.nextLine();
+
+        return validateNumberFormat(input);
+    }
+
+
+    private int validateNumberFormat(String input) {
+        try {
+            return parseInt(input);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("[Error]숫자만 입력 가능합니다.");
+        }
+    }
+
+
     private void validateDelimiter(String input) {
-        if (!input.matches("\\d+(,\\d+)*")) {
+        if (!input.matches("\\d+(,\\s*\\d+)*")) {
             throw new IllegalArgumentException("Error 구분자는 ','만 가능합니다");
         }
     }
