@@ -65,7 +65,7 @@ public class Controller {
     private int calculateStatus(WinningNumber winningNumber, LottoTickets lottoTickets, LottoShop money, int bonusNumber) {
         lottoResult.calculate(lottoTickets.getTickets(), winningNumber.getWinningNumber(), bonusNumber);
 
-        return money.getWinningAmount(lottoResult.getResult());
+        return lottoResult.getWinningAmount(lottoResult.getResult());
     }
 
     private void printStatus(int profit, LottoShop money) {
