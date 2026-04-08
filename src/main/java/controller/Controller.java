@@ -5,14 +5,14 @@ import model.LottoTicket;
 import model.LottoTickets;
 import model.Money;
 import model.WinningNumber;
-import view.Inputview;
-import view.Outputview;
+import view.InputView;
+import view.OutputView;
 
 import java.util.List;
 
 public class Controller {
-    private final Inputview inputview = new Inputview();
-    private final Outputview outputview = new Outputview();
+    private final InputView inputView = new InputView();
+    private final OutputView outputView = new OutputView();
     private final LottoResult lottoResult = new LottoResult();
     private final LottoTickets lottoTickets = new LottoTickets();
 
@@ -21,20 +21,20 @@ public class Controller {
 
         showTickets(money);
 
-        WinningNumber winningNumber = new WinningNumber(inputview.getResult());
-        int bonusNumber = inputview.getBonusBall();
+        WinningNumber winningNumber = new WinningNumber(inputView.getResult());
+        int bonusNumber = inputView.getBonusBall();
         int totalPrice = calculateStatus(winningNumber, lottoTickets, money, bonusNumber);
         printStatus(totalPrice, money);
 
     }
 
     private Money buyTickets() {
-        int getMoney = inputview.getMoney();
-        int manualquantity = inputview.getManualTicketCount();
+        int getMoney = inputView.getMoney();
+        int manualQuantity = inputView.getManualTicketCount();
 
-        Money money = new Money(getMoney, manualquantity);
+        Money money = new Money(getMoney, manualQuantity);
 
-        List<LottoTicket> manualTickets = inputview.getManalTicketsNumber(money.getManualAmount());
+        List<LottoTicket> manualTickets = inputView.getManalTicketsNumber(money.getManualAmount());
 
         lottoTickets.buyManualTickets(manualTickets);
         lottoTickets.buyAutoTickets(money.getAutoAmount());
@@ -43,8 +43,8 @@ public class Controller {
     }
 
     private void showTickets(Money money) {
-        outputview.printPurchaseSummary(money.getManualAmount(), money.getAutoAmount());
-        outputview.printMytickets(lottoTickets);
+        outputView.printPurchaseSummary(money.getManualAmount(), money.getAutoAmount());
+        outputView.printMytickets(lottoTickets);
     }
 
     private int calculateStatus(WinningNumber winningNumber, LottoTickets lottoTickets, Money money, int bonusNumber) {
@@ -54,8 +54,8 @@ public class Controller {
     }
 
     private void printStatus(int profit, Money money) {
-        outputview.printHead();
-        outputview.printStatus(lottoResult.getResult());
-        outputview.printRoR(money.calculateRateOfReturn(profit));
+        outputView.printHead();
+        outputView.printStatus(lottoResult.getResult());
+        outputView.printRoR(money.calculateRateOfReturn(profit));
     }
 }
