@@ -4,13 +4,13 @@ import java.util.Map;
 
 import static model.LottoRank.MISS;
 
-public class Money {
+public class LottoShop {
     private final int money;
     private final int amount;
     private final int manualAmount;
     private final int autoAmount;
 
-    public Money(int money,int manualAmount) {
+    public LottoShop(int money, int manualAmount) {
         this.money = money;
         this.amount = getAmount();
         this.manualAmount=manualAmount;

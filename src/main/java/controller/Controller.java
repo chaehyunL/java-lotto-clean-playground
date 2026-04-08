@@ -3,7 +3,7 @@ package controller;
 import model.LottoResult;
 import model.LottoTicket;
 import model.LottoTickets;
-import model.Money;
+import model.LottoShop;
 import model.WinningNumber;
 import view.InputView;
 import view.OutputView;
@@ -17,7 +17,7 @@ public class Controller {
     private final LottoTickets lottoTickets = new LottoTickets();
 
     public void run() {
-        Money money = buyTickets();
+        LottoShop money = buyTickets();
 
         showTickets(money);
 
@@ -28,11 +28,11 @@ public class Controller {
 
     }
 
-    private Money buyTickets() {
+    private LottoShop buyTickets() {
         int getMoney = inputView.getMoney();
         int manualQuantity = inputView.getManualTicketCount();
 
-        Money money = new Money(getMoney, manualQuantity);
+        LottoShop money = new LottoShop(getMoney, manualQuantity);
 
         List<LottoTicket> manualTickets = inputView.getManalTicketsNumber(money.getManualAmount());
 
@@ -42,18 +42,18 @@ public class Controller {
         return money;
     }
 
-    private void showTickets(Money money) {
+    private void showTickets(LottoShop money) {
         outputView.printPurchaseSummary(money.getManualAmount(), money.getAutoAmount());
         outputView.printMytickets(lottoTickets);
     }
 
-    private int calculateStatus(WinningNumber winningNumber, LottoTickets lottoTickets, Money money, int bonusNumber) {
+    private int calculateStatus(WinningNumber winningNumber, LottoTickets lottoTickets, LottoShop money, int bonusNumber) {
         lottoResult.calculate(lottoTickets.getTickets(), winningNumber.getWinningNumber(), bonusNumber);
 
         return money.getWinningAmount(lottoResult.getResult());
     }
 
-    private void printStatus(int profit, Money money) {
+    private void printStatus(int profit, LottoShop money) {
         outputView.printHead();
         outputView.printStatus(lottoResult.getResult());
         outputView.printProfit(money.calculateRateOfReturn(profit));

@@ -1,6 +1,5 @@
 import model.LottoRank;
-import model.LottoTickets;
-import model.Money;
+import model.LottoShop;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,7 +13,7 @@ public class TestMoney {
     public void getAmountTest() {
         //given:2만월을 받고, 2개의 수동 티켓을 받음
         int inputMoney = 20000;
-        Money money = new Money(inputMoney, 2);
+        LottoShop money = new LottoShop(inputMoney, 2);
         //when: 2개의 수동 티켓/18개의 자동티켓/총티켓 20
         int TrueManualamount = 2;
         int TrueAutoamount = 18;
@@ -29,7 +28,7 @@ public class TestMoney {
     @DisplayName("수익률 계산이 올바른지 테스트")
     public void calculateRateOfReturnTest(){
         //given 받는 돈이 20000원,그중 수익이 10000원이라고 하자
-        Money money=new Money(20000,4);
+        LottoShop money=new LottoShop(20000,4);
         int profit=10000;
         //when:money에 있는 수익률 계산 메서드를 이용할때
         double ror=money.calculateRateOfReturn(profit);
@@ -41,7 +40,7 @@ public class TestMoney {
     @DisplayName("여러 등수가 제대로 환산되는지")
     public void getWinningAmountTest() {
         //given:등수별로 하나씩 다 주어진다고 가정했을대
-        Money money = new Money(20000, 1);
+        LottoShop money = new LottoShop(20000, 1);
         Map<LottoRank, Integer> status = new HashMap<>();
         //when: 모든 status에 put해준다
         status.put(LottoRank.THREE, 1);
