@@ -34,6 +34,17 @@ public class LottoResult {
 
         }
     }
+    public int getWinningAmount(Map<LottoRank,Integer>status){
+        int total=0;
+        for(LottoRank lottoRank:LottoRank.values()){
+            int count=status.getOrDefault(lottoRank,0);
+            if(lottoRank==MISS){
+                return total;
+            }
+            total+=lottoRank.getWinningMoney()*count;
+        }
+        return total;
+    }
 
     public Map<LottoRank, Integer> getResult() {
         return lottoStatus;
