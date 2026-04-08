@@ -1,4 +1,5 @@
 import model.LottoRank;
+import model.LottoResult;
 import model.LottoShop;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -48,7 +49,8 @@ public class TestMoney {
         status.put(LottoRank.FIVE, 1);
         status.put(LottoRank.SIX, 1);
         //then: 결과 값과 내가 예측한 값이 동일해야한다.
-        int result = money.getWinningAmount(status);
+        LottoResult lottoResult=new LottoResult();
+        int result = lottoResult.getWinningAmount(status);
         int expect = LottoRank.THREE.getWinningMoney() * 1 +
                 LottoRank.FOUR.getWinningMoney() * 1 +
                 LottoRank.FIVE.getWinningMoney() * 1 +
