@@ -1,13 +1,16 @@
 package controller;
 
+import model.LottoRank;
 import model.LottoResult;
 import model.LottoTicket;
 import model.LottoTickets;
 import model.LottoShop;
 import model.WinningNumber;
+import util.ManualLottoParser;
 import view.InputView;
 import view.OutputView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Controller {
@@ -34,12 +37,24 @@ public class Controller {
 
         LottoShop money = new LottoShop(getMoney, manualQuantity);
 
-        List<LottoTicket> manualTickets = inputView.getManalTicketsNumber(money.getManualAmount());
+        List <LottoTicket> manualTickets=createManualTickets(manualQuantity);
 
         lottoTickets.buyManualTickets(manualTickets);
         lottoTickets.buyAutoTickets(money.getAutoAmount());
 
         return money;
+    }
+
+    private List<LottoTicket> createManualTickets(int quantity){
+        List <LottoTicket>tickets=new ArrayList<>();
+        inputView.printManualInputMassage();
+        for(int i=0;i<quantity;i++){
+            String input= inputView.readManualInput();
+            List<Integer> number= ManualLottoParser.parseManualNumber(input);
+            LottoTicket ticket=new LottoTicket(number);
+            tickets.add(ticket);
+        }
+        return tickets;
     }
 
     private void showTickets(LottoShop money) {
