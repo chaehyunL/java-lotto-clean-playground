@@ -23,31 +23,14 @@ public class InputView {
         return validateNumberFormat(input);
     }
 
-    public List<LottoTicket> getManalTicketsNumber(int quantity) {
-        List<LottoTicket> myTickets = new ArrayList<>();
-        System.out.println("수동으로 구매할 번호를 입력해 주세요.");
 
-        for (int i = 0; i < quantity; i++) {
-            LottoTicket ticket = getManualTicketNumber();
-            myTickets.add(ticket);
-        }
-        return myTickets;
+    public void printManualInputMassage(){
+        System.out.println("수동으로 구매할 번호를 입력해주세요.");
     }
 
-    public LottoTicket getManualTicketNumber() {
-        String input = scanner.nextLine();
-        validateDelimiter(input);
-
-        String[] splitInput = input.split(",");
-        List<Integer> Number = new ArrayList<>();
-        for (String number : splitInput) {
-            Number.add(parseInt(number.trim()));
-        }
-        LottoTicket ticket = new LottoTicket(Number);
-
-        return ticket;
+    public String readManualInput(){
+        return scanner.nextLine();
     }
-
 
     public List<Integer> getResult() {
         List<Integer> result = new ArrayList<>();
