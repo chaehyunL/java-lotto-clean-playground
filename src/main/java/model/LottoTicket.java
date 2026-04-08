@@ -1,13 +1,17 @@
 package model;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class LottoTicket {
     private final List<Integer> lottoNumbers;
 
     public LottoTicket(List<Integer> number){
         this.lottoNumbers=new ArrayList<>(number);
+        vaildateSize(number);
+        validateDuplicate(number);
         Collections.sort(this.lottoNumbers);
     }
 
@@ -22,5 +26,18 @@ public class LottoTicket {
     }
     public List<Integer> getLottoNumbers() {
         return List.copyOf(lottoNumbers);
+    }
+
+    private void vaildateSize(List<Integer> numbers){
+        if(numbers.size()!=6){
+            throw new IllegalArgumentException("로또 번호는 6개여야 합니다");
+        }
+    }
+
+    private void validateDuplicate(List<Integer> numbers) {
+        Set<Integer> set = new HashSet<>(numbers);
+        if (set.size() != numbers.size()) {
+            throw new IllegalArgumentException("로또 번호에 중복이 있습니다.");
+        }
     }
 }
