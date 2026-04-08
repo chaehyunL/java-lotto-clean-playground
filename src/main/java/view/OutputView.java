@@ -40,7 +40,7 @@ public class OutputView {
         }
     }
 
-    public void printRoR(double ror) {
+    public void printProfit(double ror) {
         System.out.printf("총 수익률은 %.2f입니다.", ror);
     }
 }

@@ -12,7 +12,7 @@ public class TestLottoTicket {
 
     @Test
     @DisplayName("복권이 오름차순으로 정렬되어있는가")
-    public void getnumberup() {
+    public void getNumberUp() {
         //Given:로또 티켓 생성
         LottoTicket lottoTicket = new LottoTicket(List.of(6,5,4,3,2,1));
         //When:로또 티켓 숫자 부여

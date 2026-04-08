@@ -13,11 +13,11 @@ public class WinningNumber {
     public List<Integer> getWinningNumber() {
         return winningNumber;
     }
-    private final int minNumber=1;
-    private final int maxNumber=45;
+    private final int MIN_NUMBER=1;
+    private final int MAX_NUMBER=45;
     private void validateRange(List<Integer> Numbers){
         for(Integer number:Numbers){
-            if(minNumber>number||number>maxNumber){
+            if(MIN_NUMBER>number||number>MAX_NUMBER){
                 throw new IllegalArgumentException("[ERROR]1과 45사이의 숫자를 입력하시오");
             }
         }

@@ -11,9 +11,9 @@ public class LottoTicket {
         Collections.sort(this.lottoNumbers);
     }
 
-    public int calculateMatch(List<Integer> winnumbers) {
+    public int calculateMatch(List<Integer> winningNumbers) {
         return (int) lottoNumbers.stream()
-                .filter(winnumbers::contains)
+                .filter(winningNumbers::contains)
                 .count();
     }
 

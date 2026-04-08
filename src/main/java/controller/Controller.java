@@ -56,6 +56,6 @@ public class Controller {
     private void printStatus(int profit, Money money) {
         outputView.printHead();
         outputView.printStatus(lottoResult.getResult());
-        outputView.printRoR(money.calculateRateOfReturn(profit));
+        outputView.printProfit(money.calculateRateOfReturn(profit));
     }
 }

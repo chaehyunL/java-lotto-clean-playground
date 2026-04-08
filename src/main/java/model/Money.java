@@ -10,11 +10,11 @@ public class Money {
     private final int manualAmount;
     private final int autoAmount;
 
-    public Money(int money,int manualamount) {
+    public Money(int money,int manualAmount) {
         this.money = money;
         this.amount = getAmount();
-        this.manualAmount=manualamount;
-        this.autoAmount=amount-manualamount;
+        this.manualAmount=manualAmount;
+        this.autoAmount=amount-manualAmount;
     }
 
     public int getAmount() {
