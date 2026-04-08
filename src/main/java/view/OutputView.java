@@ -8,7 +8,7 @@ import java.util.Map;
 
 import static model.LottoRank.MISS;
 
-public class Outputview {
+public class OutputView {
     public void printPurchaseSummary(int manualQuantity, int autoQuantity) {
         System.out.println("\n" + "수동으로 " + manualQuantity + "장, 자동으로 " + autoQuantity + "개를 구매했습니다.");
 

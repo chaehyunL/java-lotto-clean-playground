@@ -1,7 +1,6 @@
 package view;
 
 import model.LottoTicket;
-import model.LottoTickets;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +8,7 @@ import java.util.Scanner;
 
 import static java.lang.Integer.parseInt;
 
-public class Inputview {
+public class InputView {
     Scanner scanner = new Scanner(System.in);
 
     public int getMoney() {
