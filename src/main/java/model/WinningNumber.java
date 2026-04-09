@@ -3,6 +3,9 @@ package model;
 import java.util.List;
 
 public class WinningNumber {
+    private final int MIN_NUMBER = 1;
+    private final int MAX_NUMBER = 45;
+
     private List<Integer> winningNumber;
 
     public WinningNumber(List<Integer> winningNumber) {
@@ -10,8 +13,6 @@ public class WinningNumber {
         validateRange(winningNumber);
     }
 
-    private final int MIN_NUMBER = 1;
-    private final int MAX_NUMBER = 45;
 
     private void validateRange(List<Integer> Numbers) {
         for (Integer number : Numbers) {
