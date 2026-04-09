@@ -5,8 +5,8 @@ import java.util.List;
 
 
 public class LottoTickets {
-    private final List<LottoTicket> tickets = new ArrayList<>();
 
+    private final List<LottoTicket> tickets = new ArrayList<>();
     private final List<LottoTicket> manualTickets = new ArrayList<>();
     private final List<LottoTicket> autoTickets = new ArrayList<>();
 
