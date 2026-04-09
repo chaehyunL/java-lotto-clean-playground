@@ -29,8 +29,8 @@ public class LottoShop {
         return autoAmount;
     }
 
-    private void validateManualAmount(int count) {
-        if (count < 0 || count > manualAmount) {
+    public void validateManualAmount(int count) {
+        if (count < 0 || count > amount) {
             throw new IllegalArgumentException("수동 구매 수량이 올바르지 않습니다.");
         }
     }
