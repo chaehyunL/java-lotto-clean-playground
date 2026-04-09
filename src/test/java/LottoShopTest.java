@@ -59,4 +59,31 @@ public class LottoShopTest {
         Assertions.assertEquals(result, expect);
     }
 
+    @Test
+    @DisplayName("수동 구매 로또 수, 유효검증 테스트")
+    public void validateManualAmount_success(){
+        //Given:개수가 4인 money와 유효한 개수 4를 가질때
+        int money=4000;
+        int validateCount=4;
+        //When:새로운 객체 생성을 통해 가능한 manualAmount 개수를 받음
+        LottoShop lottoShop =new LottoShop(money, validateCount);
+        //Then:유효한지에 대한 검증
+        Assertions.assertDoesNotThrow(() -> {
+            lottoShop.validateManualAmount(validateCount);
+        });
+    }
+
+    @Test
+    @DisplayName("수동 로또 개수가 구매 금액을 초과 예외")
+    void validateManualAmount_fail() {
+        int money = 4000;   // 최대 4장 가능
+        int manualCount = 5; // 초과
+
+        LottoShop lottoShop = new LottoShop(money,manualCount);
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            lottoShop.validateManualAmount(manualCount);
+        });
+    }
+
 }
