@@ -5,19 +5,21 @@ import java.util.List;
 public class WinningNumber {
     private List<Integer> winningNumber;
 
-    public WinningNumber(List<Integer> winningNumber){
-        this.winningNumber=winningNumber;
+    public WinningNumber(List<Integer> winningNumber) {
+        this.winningNumber = winningNumber;
         validateRange(winningNumber);
     }
 
     public List<Integer> getWinningNumber() {
         return winningNumber;
     }
-    private final int MIN_NUMBER=1;
-    private final int MAX_NUMBER=45;
-    private void validateRange(List<Integer> Numbers){
-        for(Integer number:Numbers){
-            if(MIN_NUMBER>number||number>MAX_NUMBER){
+
+    private final int MIN_NUMBER = 1;
+    private final int MAX_NUMBER = 45;
+
+    private void validateRange(List<Integer> Numbers) {
+        for (Integer number : Numbers) {
+            if (MIN_NUMBER > number || number > MAX_NUMBER) {
                 throw new IllegalArgumentException("[ERROR]1과 45사이의 숫자를 입력하시오");
             }
         }

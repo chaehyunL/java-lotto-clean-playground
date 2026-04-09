@@ -27,14 +27,14 @@ public class TestMoney {
 
     @Test
     @DisplayName("수익률 계산이 올바른지 테스트")
-    public void calculateRateOfReturnTest(){
+    public void calculateRateOfReturnTest() {
         //given 받는 돈이 20000원,그중 수익이 10000원이라고 하자
-        LottoShop money=new LottoShop(20000,4);
-        int profit=10000;
+        LottoShop money = new LottoShop(20000, 4);
+        int profit = 10000;
         //when:money에 있는 수익률 계산 메서드를 이용할때
-        double ror=money.calculateRateOfReturn(profit);
+        double ror = money.calculateRateOfReturn(profit);
         //then:10000/20000과 동일한지에 대한 검증을 함.
-        Assertions.assertEquals(0.5,ror);
+        Assertions.assertEquals(0.5, ror);
     }
 
     @Test
@@ -49,14 +49,14 @@ public class TestMoney {
         status.put(LottoRank.FIVE, 1);
         status.put(LottoRank.SIX, 1);
         //then: 결과 값과 내가 예측한 값이 동일해야한다.
-        LottoResult lottoResult=new LottoResult();
+        LottoResult lottoResult = new LottoResult();
         int result = lottoResult.getWinningAmount(status);
         int expect = LottoRank.THREE.getWinningMoney() * 1 +
                 LottoRank.FOUR.getWinningMoney() * 1 +
                 LottoRank.FIVE.getWinningMoney() * 1 +
                 LottoRank.SIX.getWinningMoney() * 1;
 
-        Assertions.assertEquals(result,expect);
+        Assertions.assertEquals(result, expect);
     }
 
 }

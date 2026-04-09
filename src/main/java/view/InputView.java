@@ -1,7 +1,5 @@
 package view;
 
-import model.LottoTicket;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -24,11 +22,11 @@ public class InputView {
     }
 
 
-    public void printManualInputMassage(){
+    public void printManualInputMassage() {
         System.out.println("수동으로 구매할 번호를 입력해주세요.");
     }
 
-    public String readManualInput(){
+    public String readManualInput() {
         return scanner.nextLine();
     }
 

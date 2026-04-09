@@ -1,4 +1,5 @@
 package model;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -8,8 +9,8 @@ import java.util.Set;
 public class LottoTicket {
     private final List<Integer> lottoNumbers;
 
-    public LottoTicket(List<Integer> number){
-        this.lottoNumbers=new ArrayList<>(number);
+    public LottoTicket(List<Integer> number) {
+        this.lottoNumbers = new ArrayList<>(number);
         vaildateSize(number);
         validateDuplicate(number);
         Collections.sort(this.lottoNumbers);
@@ -21,15 +22,16 @@ public class LottoTicket {
                 .count();
     }
 
-    public boolean hasBonusBall(int BonusBall){
+    public boolean hasBonusBall(int BonusBall) {
         return lottoNumbers.contains(BonusBall);
     }
+
     public List<Integer> getLottoNumbers() {
         return List.copyOf(lottoNumbers);
     }
 
-    private void vaildateSize(List<Integer> numbers){
-        if(numbers.size()!=6){
+    private void vaildateSize(List<Integer> numbers) {
+        if (numbers.size() != 6) {
             throw new IllegalArgumentException("로또 번호는 6개여야 합니다");
         }
     }

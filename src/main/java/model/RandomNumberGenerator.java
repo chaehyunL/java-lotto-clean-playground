@@ -6,7 +6,8 @@ import java.util.List;
 
 public class RandomNumberGenerator {
     private static final int MIN_LOTTONUMBER = 1;
-    private static final int Max_LOTTONUMBER= 45;
+    private static final int Max_LOTTONUMBER = 45;
+
     public List<Integer> getRandomNumberList() {
         List<Integer> pool = new ArrayList<>();
 
@@ -15,7 +16,7 @@ public class RandomNumberGenerator {
         }
         Collections.shuffle(pool);
 
-        return pool.subList(0,6);
+        return pool.subList(0, 6);
     }
 
 }
