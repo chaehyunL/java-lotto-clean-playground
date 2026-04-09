@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-public class TestLottoTickets {
+public class LottoTicketsTest {
     @Test
     @DisplayName("자동 로또 개수를 올바르게 받고 있는지 확인하기")
     public void buyAutoTicketsTest() {

@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TestMoney {
+public class MoneyTest {
     @Test
     @DisplayName("가격을 입력받았을때 올바른 자동티켓/수동티켓을 반환하는지")
     public void getAmountTest() {

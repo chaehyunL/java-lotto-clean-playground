@@ -6,7 +6,7 @@ import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class TestLottoTicket {
+public class LottoTicketTest {
 
     @Test
     @DisplayName("복권이 오름차순으로 정렬되어있는가")
