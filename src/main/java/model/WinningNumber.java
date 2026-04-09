@@ -10,10 +10,6 @@ public class WinningNumber {
         validateRange(winningNumber);
     }
 
-    public List<Integer> getWinningNumber() {
-        return winningNumber;
-    }
-
     private final int MIN_NUMBER = 1;
     private final int MAX_NUMBER = 45;
 
@@ -23,5 +19,9 @@ public class WinningNumber {
                 throw new IllegalArgumentException("[ERROR]1과 45사이의 숫자를 입력하시오");
             }
         }
+    }
+
+    public List<Integer> getWinningNumber() {
+        return winningNumber;
     }
 }
